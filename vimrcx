@@ -1,0 +1,44 @@
+"Place settings specific to this host here
+
+colorscheme molokai
+set colorcolumn=0
+set cursorline cursorcolumn
+"set relativenumber
+
+" code folding
+set foldmethod=indent
+set foldlevel=99
+
+" change filetype to python
+nmap <leader>fp :set filetype=python<cr>
+nmap <leader>qa :qall<cr>
+
+"flake8
+source ~/.vim/bundle/vim-flake8/ftplugin/python_flake8.vim
+autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
+"autocmd BufWritePost *.py call Flake8()
+let g:flake8_max_line_length=80
+let g:flake8_ignore="E501"
+
+" move to new line if past 120 characters
+set tw=120
+
+"highlight excess characters
+augroup vimrc_autocmds
+    autocmd!
+    " highlight characters past column 120
+    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
+    autocmd FileType python match Excess /\%120v.*/
+    autocmd FileType python set nowrap
+    augroup END
+
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+let g:ctrlp_map = '<c-p>'
+
+"nmap <Leader>n :NERDTreeiToggle<cr>
+nmap <silent> <c-m> :NERDTreeToggle<cr>
+"au VimEnter * NERDTree
+
+" jinja
+au BufRead,BufNewFile *.cm set filetype=jinja
+au BufRead,BufNewFile *.mod set filetype=jinja
