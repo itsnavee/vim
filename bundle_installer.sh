@@ -30,6 +30,7 @@ git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/mileszs/ack.vim.git
 git clone https://github.com/vim-scripts/taglist.vim
 git clone https://github.com/davidhalter/jedi-vim.git
+git clone https://github.com/airblade/vim-gitgutter
 # Make sure to update the jedi code, https://github.com/davidhalter/jedi-vim/issues/53
 pushd jedi-vim
 git submodule update --init
@@ -53,6 +54,8 @@ git clone https://github.com/Lokaltog/vim-powerline.git
 popd
 # Colorschemes
 mkdir ~/.vim/colors
+cp molokai.vim ir_black.vim ~/.vim/colors/.
+
 pushd ~/.vim/colors
 git clone https://github.com/vim-scripts/peaksea.git
 git clone https://github.com/therubymug/vim-pyte.git
@@ -64,5 +67,4 @@ git clone https://github.com/sickill/vim-monokai.git
 # the terminal itself which can be done from the repo
 # https://github.com/sigurdga/gnome-terminal-colors-solarized
 #git clone https://github.com/altercation/vim-colors-solarized.git
-
 popd
