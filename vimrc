@@ -232,6 +232,12 @@ let g:ctrlp_regexp = 1
 " default behavior. This behavior has been disabled.
 let g:ctrlp_switch_buffer = 0
 
+" When in ctrlp mode, open files in new tab by default by hitting enter key
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
+
 " Toggle tag list
 nnoremap <silent> <F5> :TlistToggle<CR>
 
