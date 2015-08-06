@@ -1,7 +1,6 @@
 " naveed's ~/.vimrc
 " For more details see: https://github.com/itsnavee/vim
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -439,12 +438,40 @@ set lbr
 
 " Sets the maximum line length. Lines exceeding this length will be broken to a
 " newline
-set tw=79
+set tw=120
 
-" Draws a line at the nth column. Multiple column. Makes redraw slower. When
-" preceded by a + or - the number given is added to the value of tw.
-" TODO: It's better to highlight text after tw instead of drawing this column.
-set colorcolumn=+1
+" Cursorcolumn highlight
+set cursorcolumn
+
+" macvim font settings
+:set guifont=Consolas\Italic:h14
+
+" Code folding
+set foldmethod=indent
+set foldlevel=99
+
+" Change filetype to python to have syntax colors (useful for files without .py extention)
+nmap <leader>fp :set filetype=python<cr>
+nmap <leader>qa :qall<cr>
+
+" Flake8 Settings
+source ~/.vim/bundle/vim-flake8/ftplugin/python_flake8.vim
+autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
+"autocmd BufWritePost *.py call Flake8()
+let g:flake8_max_line_length=120
+let g:flake8_ignore="E501,E265,E302"
+
+"Highlight excess characters on the line
+augroup vimrc_autocmds
+    autocmd!
+    " highlight characters past column 120
+    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
+    autocmd FileType python match Excess /\%120v.*/
+    autocmd FileType python set nowrap
+    augroup END
+
+"Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set noshowmode 
 
 " Don't apply colorcolumn to help or readonly files.
 " @TODO: This might be a good fit for "Filetypes section
