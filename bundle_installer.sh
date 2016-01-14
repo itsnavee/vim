@@ -29,7 +29,8 @@ git clone https://github.com/scrooloose/nerdcommenter.git
 git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/mileszs/ack.vim.git
 git clone https://github.com/vim-scripts/taglist.vim
-git clone https://github.com/davidhalter/jedi-vim.git
+# git clone https://github.com/davidhalter/jedi-vim.git
+git clone https://github.com/Shougo/neocomplete.vim
 git clone https://github.com/airblade/vim-gitgutter
 # Make sure to update the jedi code, https://github.com/davidhalter/jedi-vim/issues/53
 pushd jedi-vim
