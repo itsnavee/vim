@@ -23,6 +23,7 @@ pushd ~/.vim/bundle
 echo "Downloading bundles..."
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 
+git clone https://github.com/vim-scripts/tar.vim.git
 git clone https://github.com/kien/ctrlp.vim.git
 git clone https://github.com/scrooloose/nerdtree.git
 git clone https://github.com/scrooloose/nerdcommenter.git
